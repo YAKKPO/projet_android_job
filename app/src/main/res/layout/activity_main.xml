@@ -146,7 +146,7 @@
                     app:iconGravity="top"
                     app:iconPadding="0dp"
                     app:iconSize="65dp"
-                    tools:ignore="VisualLintButtonSize" />
+                    tools:ignore="VisualLintButtonSize,TextSizeCheck" />
 
             </LinearLayout>
         </LinearLayout>
