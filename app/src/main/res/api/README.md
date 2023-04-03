@@ -11,7 +11,9 @@
         Il est généralement utilisé pour définir les valeurs initiales des propriétés de l'objet, 
         pour établir des connexions ou pour effectuer d'autres opérations de configuration.
     </p>
+    <font color="green">test</font>
     <p style="font-size: 1.1rem;color: green;">L'exemple d'utilisation</p>
 
     None
+    
 </div>
