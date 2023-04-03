@@ -4,4 +4,11 @@
     <string name="navigation_drawer_open">navigation_drawer_open</string>
     <string name="navigation_drawer_close">navigation_drawer_close</string>
     <string name="Inscription">Inscription</string>
+    <string name="app_title1">Trouvez un rendez-vous avec</string>
+    <string name="app_title2">une médecin généraliste</string>
+    <string name="app_Rechercher">Rechercher</string>
+    <string name="app_test1">app_test1</string>
+    <string name="app_test2">app_test2</string>
+    <string name="app_test3">app_test3</string>
+    <string name="app_Categorie_medecin">Catégorie médecin</string>
 </resources>
