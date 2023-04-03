@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_login"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/Login"
+        />
+    <item
+        android:id="@+id/menu_inscription"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/Inscription"
+        />
+    <item
+        android:id="@+id/rdv"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="RDV"
+        />
+
+
+
+
+
+</menu>
