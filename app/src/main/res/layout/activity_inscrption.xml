@@ -5,189 +5,188 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InscrptionActivity">
-    <LinearLayout
 
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#D52864FE"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/Inscription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UselessLeaf">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:contentDescription="@string/todo"
-            android:paddingTop="50dp"
-            android:paddingBottom="50dp"
-            app:srcCompat="@android:drawable/ic_secure"
-            tools:ignore="ImageContrastCheck" />
-
-        <EditText
-            android:id="@+id/edtext_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint="@string/app_email"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="mail"
-            android:textColorHint="#78909C"
-            tools:ignore="HardcodedText,TextContrastCheck,TextFields" />
-
-        <EditText
-            android:id="@+id/edtext_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint="@string/app_password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:textColorHint="#78909C"
-            tools:ignore="TextContrastCheck" />
-
-        <EditText
-            android:id="@+id/confirmer_mot_de_passe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint="@string/confirmer_mot_de_passe"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            tools:ignore="LabelFor" />
-
-        <EditText
-            android:id="@+id/nom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint="@string/nom"
-            android:inputType="text"
-            android:minHeight="48dp"
-            tools:ignore="LabelFor" />
-
-        <EditText
-            android:id="@+id/prenom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint="@string/prenom"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="@string/prenom"
-            tools:ignore="LabelFor" />
-
-        <EditText
-            android:id="@+id/numero_de_tel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint=""
-            android:inputType=""
-            android:minHeight="48dp"
-            android:text="@string/numéro_de_telephone"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck" />
-
-        <EditText
-            android:id="@+id/datte_d_anniversaire"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint=""
-            android:inputType="text"
-            android:minHeight="48dp"
-            tools:ignore="LabelFor" />
-        <EditText
-            android:id="@+id/genre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint=""
-            android:inputType="text"
-            android:minHeight="48dp"
-            tools:ignore="LabelFor" />
-
-        <EditText
-            android:id="@+id/adresse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
-            android:ems="10"
-            android:hint=""
-            android:inputType="text"
-            android:text="@string/adresse"
-            android:minHeight="48dp"
-            tools:ignore="LabelFor" />
-
-
-
-
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_login"
-            style="@style/MyButtonStyle"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:text="@string/Login"
-            android:textSize="16sp"
-            tools:ignore="VisualLintBounds" />
-
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/login_mot_de_passe_oublie"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:ignore="TextContrastCheck,VisualLintBounds" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:contentDescription="@string/todo"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                app:srcCompat="@android:drawable/ic_secure"
+                tools:ignore="ImageContrastCheck" />
+
+            <EditText
+                android:id="@+id/edtext_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint="@string/app_email"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#78909C"
+                tools:ignore="HardcodedText,TextContrastCheck,TextFields" />
+
+            <EditText
+                android:id="@+id/edtext_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint="@string/app_password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColorHint="#78909C"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/confirmer_mot_de_passe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint="@string/confirmer_mot_de_passe"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/nom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint="@string/nom"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="#757575"
+                tools:ignore="LabelFor,TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/prenom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint="@string/prenom"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:text="@string/prenom"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/numero_de_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint=""
+                android:inputType=""
+                android:minHeight="48dp"
+                android:text="@string/numéro_de_telephone"
+                tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/datte_d_anniversaire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint=""
+                android:inputType="text"
+                android:minHeight="48dp"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint=""
+                android:inputType="text"
+                android:minHeight="48dp"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/adresse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext_selector"
+                android:ems="10"
+                android:hint=""
+                android:inputType="text"
+                android:text="@string/adresse"
+                android:minHeight="48dp"
+                tools:ignore="LabelFor" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_login"
+                style="@style/MyButtonStyle"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="@string/Login"
+                android:textSize="16sp"
+                tools:ignore="VisualLintBounds" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/login_mot_de_passe_oublie"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:ignore="TextContrastCheck,VisualLintBounds" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
