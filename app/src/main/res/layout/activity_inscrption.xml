@@ -102,7 +102,6 @@
                 android:hint="@string/prenom"
                 android:inputType="text"
                 android:minHeight="48dp"
-                android:text="@string/prenom"
                 tools:ignore="LabelFor" />
 
             <EditText
@@ -129,7 +128,7 @@
                 android:autofillHints=""
                 android:background="@drawable/bg_edittext_selector"
                 android:ems="10"
-                android:hint=""
+                android:hint="@string/date_de_naissance"
                 android:inputType="text"
                 android:minHeight="48dp"
                 tools:ignore="LabelFor" />
