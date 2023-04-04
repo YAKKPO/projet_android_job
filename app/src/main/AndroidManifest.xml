@@ -12,6 +12,21 @@
         android:theme="@style/Theme.Projet_E5_version_final"
         tools:targetApi="31">
         <activity
+            android:name=".mon_compte"
+            android:exported="false" />
+        <activity
+            android:name=".parametres"
+            android:exported="false" />
+        <activity
+            android:name=".message"
+            android:exported="false" />
+        <activity
+            android:name=".connexion"
+            android:exported="false" />
+        <activity
+            android:name=".Inscrption"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

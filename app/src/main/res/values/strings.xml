@@ -4,4 +4,10 @@
     <string name="navigation_drawer_open">navigation_drawer_open</string>
     <string name="navigation_drawer_close">navigation_drawer_close</string>
     <string name="Inscription">Inscription</string>
+    <string name="menu_se_connecter">SE CONNECTER</string>
+    <string name="menu_s_inscrire">S\'INSCRIRE</string>
+    <string name="menu_rdv">RDV</string>
+    <string name="menu_message">MESSAGE</string>
+    <string name="menu_parametres">PARAMETRES</string>
+    <string name="menu_mon_compte">MON COMPTE </string>
 </resources>
