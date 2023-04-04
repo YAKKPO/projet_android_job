@@ -15,7 +15,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".InscrptionActivity"
+            android:name=".InscriptionActivity"
             android:exported="false" />
         <activity
             android:name=".ParametresActivity"
