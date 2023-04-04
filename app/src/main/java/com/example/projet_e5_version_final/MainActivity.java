@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (item.getTitle().equals("Log Out")){
 
-
+                    //menu
                     NavigationView nv = findViewById(R.id.nav_view);
                     nv.getMenu().clear(); // 清除原有菜单
                     nv.inflateMenu(R.menu.nav_menu); // 加载新菜单
