@@ -65,7 +65,7 @@
                     app:icon="@android:drawable/ic_menu_search"
                     app:iconGravity="textEnd"
                     app:iconPadding="0dp"
-                    app:iconSize="65dp" />
+                    app:iconSize="50dp" />
 
 
             </LinearLayout>
