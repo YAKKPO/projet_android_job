@@ -49,11 +49,11 @@ public class LoginActivity extends AppCompatActivity {
                 Api api = new Api(listValues);
                 api.start();
 
-                String api_string = api.get_Values();
-                System.out.println(api_string);
+
+
                 try {
                     api.join();
-
+                    String api_string = api.get_Values();
                     JSONObject api_json = new JSONObject(api_string);
 
                     Toast.makeText(this, "Bonjour! " + api_json.getString("first_name") + " "
