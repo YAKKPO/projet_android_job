@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -46,17 +47,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawer(GravityCompat.START);
+                if(item.getTitle().equals("Login")){
+                    Intent intent_login = new Intent();
+                    intent_login.setClass(MainActivity.this,LoginActivity.class);
+                    startActivity(intent_login);
+                }
                 return true;
             }
         });
+
+
+
     }
 
     //testfezef
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
+
                 DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
