@@ -63,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                     intent_login.setClass(MainActivity.this,LoginActivity.class);
                     startActivity(intent_login);
                 }
+
+                if(item.getTitle().equals("S'INSCRIRE")){
+                    Intent intent_inscrire = new Intent();
+                    intent_inscrire.setClass(MainActivity.this,InscrptionActivity.class);
+                    startActivity(intent_inscrire);
+                }
                 return true;
             }
         });

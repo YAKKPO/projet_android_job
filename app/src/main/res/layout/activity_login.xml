@@ -21,10 +21,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:contentDescription="@string/todo"
-            android:paddingTop="50dp"
-            android:paddingBottom="50dp"
+            android:layout_height="250dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
             app:srcCompat="@drawable/user_logo"
             tools:ignore="ImageContrastCheck" />
 
@@ -41,7 +40,6 @@
             android:hint="@string/app_email"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="houzeyu7@gmail.com"
             android:textColorHint="#78909C"
             tools:ignore="TextContrastCheck,TextFields" />
 
@@ -71,7 +69,7 @@
             android:paddingBottom="0dp"
             android:text="@string/Login"
             android:textSize="16sp"
-             />
+            />
 
         <TextView
             android:id="@+id/textView3"
@@ -93,6 +91,7 @@
             android:layout_marginTop="20dp"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
-            android:text="@string/Inscription" />
+            android:text="@string/Inscription"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
