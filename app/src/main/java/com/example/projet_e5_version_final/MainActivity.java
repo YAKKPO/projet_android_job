@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -17,6 +18,7 @@ import android.util.DisplayMetrics;
 import android.widget.TextView;
 
 import com.example.projet_e5_version_final.services.Api;
+import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -27,13 +29,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-
+    private MenuItem menu_moncompte,menu_log_out;
+    private String id,type;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenWidth = displayMetrics.widthPixels;
@@ -63,19 +65,40 @@ public class MainActivity extends AppCompatActivity {
                     intent_login.setClass(MainActivity.this,LoginActivity.class);
                     startActivity(intent_login);
                 }
+
+                if (item.getTitle().equals("Log Out")){
+
+
+                    NavigationView nv = findViewById(R.id.nav_view);
+                    nv.getMenu().clear(); // 清除原有菜单
+                    nv.inflateMenu(R.menu.nav_menu); // 加载新菜单
+
+                    Intent intent = getIntent();
+                    intent.replaceExtras(new Bundle());
+                    finish();
+                    startActivity(intent);
+
+
+                    TextView tv_titie1 = findViewById(R.id.main_title1);
+                    TextView tv_title2 = findViewById(R.id.main_title2);
+
+                    tv_titie1.setText("Trouvez un rendez-vous avec");
+                    tv_title2.setText("une médecin généraliste");
+                }
                 return true;
             }
         });
 
         Intent info_login = getIntent();
-        String id = info_login.getStringExtra("id");
-        String type = info_login.getStringExtra("type");
+        id = info_login.getStringExtra("id");
+        type = info_login.getStringExtra("type");
+        System.out.println(id + type);
         if (id != null && type != null){
             String values = "{id:" + id + "}";
             ArrayList<String> listValues = new ArrayList<>(Arrays.asList("find_user_By_id", "None", "Jiojio000608.", values));
             Api api = new Api(listValues);
             api.start();
-
+            change_menu_user(navigationView);
             try {
                 api.join();
                 JSONObject api_json = new JSONObject(api.get_Values());
@@ -94,7 +117,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //testfezef
+    protected void change_menu_user(NavigationView navigationview){
+        Menu menu = navigationview.getMenu();
+        menu_moncompte = menu.add("Mon Compte");
+        menu_log_out = menu.add("Log Out");
+        menu.removeItem(R.id.menu_se_connecter);
+        menu.removeItem(R.id.menu_mon_compte);
+        menu.removeItem(R.id.menu_inscription);
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
