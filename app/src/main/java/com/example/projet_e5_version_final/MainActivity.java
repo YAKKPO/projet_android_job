@@ -65,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
                     intent_login.setClass(MainActivity.this,LoginActivity.class);
                     startActivity(intent_login);
                 }
+                System.out.println(item);
+                if(item.getTitle().equals("S'INSCRIRE")){
+                    Intent intent_login = new Intent();
+                    intent_login.setClass(MainActivity.this,InscrptionActivity.class);
+                    startActivity(intent_login);
+                }
 
                 if (item.getTitle().equals("Log Out")){
 
