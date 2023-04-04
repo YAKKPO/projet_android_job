@@ -49,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 Api api = new Api(listValues);
                 api.start();
 
-
-
                 try {
                     api.join();
                     String api_string = api.get_Values();

@@ -109,7 +109,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:text="dentiste"
-                    app:icon="@drawable/dentiste"
+                    app:icon="@drawable/ic_launcher_foreground"
                     app:iconGravity="top"
                     app:iconPadding="0dp"
                     app:iconSize="65dp"
