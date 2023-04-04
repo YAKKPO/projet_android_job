@@ -14,10 +14,11 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:ignore="UselessParent">
+
 
             <LinearLayout
                 android:id="@+id/main_p1"
@@ -149,6 +150,32 @@
                     tools:ignore="VisualLintButtonSize,TextSizeCheck" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_p3_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/main_p3_title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blue"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:shadowColor="@color/blue"
+                    android:text="@string/app_historique"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </FrameLayout>
