@@ -2,6 +2,7 @@ package com.example.projet_e5_version_final;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,9 @@ import com.example.projet_e5_version_final.services.Api;
 import java.util.ArrayList;
 import java.util.Arrays;
 import com.example.projet_e5_version_final.tools.Regular_validation;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,6 +48,31 @@ public class LoginActivity extends AppCompatActivity {
                 ArrayList<String> listValues = new ArrayList<>(Arrays.asList("login", "None", "Jiojio000608.", values));
                 Api api = new Api(listValues);
                 api.start();
+                try {
+                    api.join();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+                String api_string = api.get_Values();
+
+                try {
+                    JSONObject api_json = new JSONObject(api_string);
+                    Toast.makeText(this, "Bonjour! " + api_json.getString("first_name") + " "
+                            + api_json.getString("last_name"), Toast.LENGTH_SHORT).show();
+
+                    Intent intent_main = new Intent();
+                    intent_main.putExtra("type",api_json.getString("type"));
+                    intent_main.putExtra("id",api_json.getString("id"));
+                    intent_main.setClass(LoginActivity.this,MainActivity.class);
+                    startActivity(intent_main);
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+
             }else{
                 Toast.makeText(this, "Erreur inconnue, veuillez contacter l'administrateur!", Toast.LENGTH_SHORT).show();
             }

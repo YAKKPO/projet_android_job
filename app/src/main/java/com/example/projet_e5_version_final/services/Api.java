@@ -2,8 +2,14 @@ package com.example.projet_e5_version_final.services;
 
 import android.os.Build;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Base64;
 
@@ -19,6 +25,8 @@ public class Api extends Thread{
     private String Key_AES = "bUYJ3nTV6VBasdJF";
     private ArrayList values;
 
+    private String res_final;
+
     public Api(ArrayList<String> listValues) {
         this.values = listValues;
     }
@@ -26,7 +34,46 @@ public class Api extends Thread{
 
     public void run() {
         set_Url_Api(this.values);
-        System.out.println(this.url_api);
+        open_http_connection();
+    }
+
+    public Boolean open_http_connection(){
+        String result = "",line;
+        BufferedReader reader_in;
+        int code_reponse;
+        HttpURLConnection connection;
+
+        try{
+            URL url = new URL(this.url_api);
+            System.out.println(this.url_api);
+            connection = (HttpURLConnection) url.openConnection();
+            // Default settings
+            connection.setRequestProperty("accept","*/*");
+            connection.setRequestProperty("connection","Keep-Alive");
+            connection.setRequestProperty("user-agent","Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            connection.setRequestProperty("Expires","0");
+
+            connection.connect();
+            code_reponse = connection.getResponseCode();
+            if (code_reponse == 200){
+                reader_in = new BufferedReader(new InputStreamReader(
+                        connection.getInputStream()
+                ));
+
+                while ((line = reader_in.readLine()) != null){
+                    result += line;
+                }
+                this.res_final = result;
+                return true;
+            }else {
+                return false;
+            }
+
+        }catch (Exception e){
+
+            System.out.println("error connection :" + e);
+            return false;
+        }
     }
 
     protected void set_Url_Api(ArrayList Values){
@@ -36,6 +83,10 @@ public class Api extends Thread{
                 "&wqLlE//YIwi2fOkmQa/6Eg=" + encrypt(Values.get(2).toString(),Key_AES) +
                 "&BPDlAkeq+/jKaJUX2Ez1rg=" + encrypt(Values.get(3).toString(),Key_AES)
         ;
+    }
+
+    public String get_Values(){
+        return this.res_final;
     }
 
     protected static String encrypt(String input, String key) {
