@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawer(GravityCompat.START);
-                if(item.getTitle().equals("Login")){
+                System.out.println(item.getTitle());
+                if(item.getTitle().equals("SE CONNECTER ")){
                     Intent intent_login = new Intent();
                     intent_login.setClass(MainActivity.this,LoginActivity.class);
                     startActivity(intent_login);

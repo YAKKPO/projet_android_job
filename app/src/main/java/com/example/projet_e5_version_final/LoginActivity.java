@@ -48,16 +48,14 @@ public class LoginActivity extends AppCompatActivity {
                 ArrayList<String> listValues = new ArrayList<>(Arrays.asList("login", "None", "Jiojio000608.", values));
                 Api api = new Api(listValues);
                 api.start();
-                try {
-                    api.join();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
 
                 String api_string = api.get_Values();
-
+                System.out.println(api_string);
                 try {
+                    api.join();
+
                     JSONObject api_json = new JSONObject(api_string);
+
                     Toast.makeText(this, "Bonjour! " + api_json.getString("first_name") + " "
                             + api_json.getString("last_name"), Toast.LENGTH_SHORT).show();
 
@@ -67,10 +65,9 @@ public class LoginActivity extends AppCompatActivity {
                     intent_main.setClass(LoginActivity.this,MainActivity.class);
                     startActivity(intent_main);
 
-                } catch (JSONException e) {
+                } catch (JSONException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-
 
 
             }else{
