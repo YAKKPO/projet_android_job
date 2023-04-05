@@ -33,4 +33,9 @@
     <string name="genre">genre</string>
     <string name="adresse">adresse</string>
     <string name="mot_de_passe">Mot de passe</string>
+    <string name="santé">Votre santé. Vos données </string>
+    <string name="identité">Identité</string>
+    <string name="mon_compte_connexion">Connexion</string>
+    <string name="mon_profil">MON PROFIL</string>
+
 </resources>

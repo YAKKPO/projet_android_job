@@ -174,16 +174,7 @@
                 android:textSize="16sp"
                 tools:ignore="VisualLintBounds" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="@string/login_mot_de_passe_oublie"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                tools:ignore="TextContrastCheck,VisualLintBounds" />
+
 
         </LinearLayout>
     </ScrollView>
