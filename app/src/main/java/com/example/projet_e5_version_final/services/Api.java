@@ -31,7 +31,6 @@ public class Api extends Thread{
         this.values = listValues;
     }
 
-
     public void run() {
         set_Url_Api(this.values);
         open_http_connection();
@@ -64,7 +63,7 @@ public class Api extends Thread{
                     result += line;
                 }
                 this.res_final = result;
-                System.out.println(this.res_final);
+
                 return true;
             }else {
                 return false;
