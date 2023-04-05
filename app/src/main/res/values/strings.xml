@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Projet_E5_version_final</string>
-    <string name="Login">Login</string>
+    <string name="Login">CONNEXION</string>
     <string name="navigation_drawer_open">navigation_drawer_open</string>
     <string name="navigation_drawer_close">navigation_drawer_close</string>
     <string name="Inscription">Inscription</string>
@@ -32,4 +32,13 @@
     <string name="date_de_naissance">Date de Naissance</string>
     <string name="genre">genre</string>
     <string name="adresse">adresse</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="santé">Votre santé. Vos données </string>
+    <string name="identité">Identité</string>
+    <string name="mon_compte_connexion">Connexion</string>
+    <string name="mon_profil">Mon profil</string>
+    <string name="mon_profil_tel">Téléphone</string>
+    <string name="mon_profil_mail">Mail</string>
+    <string name="mon_profil_mot_de_passe">Mot de passe</string>
+
 </resources>

@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@color/blue">
+
+
     <item
         android:id="@+id/menu_se_connecter"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:background="@color/blue"
+        android:iconTint="@color/white"
+        android:textStyle="bold"
         android:title="SE CONNECTER "
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_inscription"
+        android:icon="@drawable/baseline_how_to_reg_24"
         android:title="S\'INSCRIRE"
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_rdv"
+        android:icon="@drawable/baseline_calendar_month_24"
         android:title="RDV"
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_message"
+        android:icon="@drawable/baseline_message_24"
+        android:iconTint="#2196F3"
         android:title="MESSAGE"
         tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_paramétres"
+        android:icon="@drawable/baseline_miscellaneous_services_24"
         android:title="PARAMETRES"
         tools:ignore="HardcodedText" />
     <item
-        android:id="@+id/menu_mon_compte"
-        android:title="MON COMPTE"
-        tools:ignore="HardcodedText" />
-
-
-
+    android:id="@+id/menu_mon_compte"
+    android:icon="@drawable/baseline_manage_accounts_24"
+    android:title="MON COMPTE"
+    tools:ignore="HardcodedText" />
 
 
 </menu>

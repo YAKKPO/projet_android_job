@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(item);
                 if(item.getTitle().equals("S'INSCRIRE")){
                     Intent intent_login = new Intent();
-                    intent_login.setClass(MainActivity.this,InscrptionActivity.class);
+                    intent_login.setClass(MainActivity.this,InscriptionActivity.class);
                     startActivity(intent_login);
                 }
 
