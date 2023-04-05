@@ -176,7 +176,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <com.example.projet_e5_version_final.tools.NestedListView
+                    <ListView
                         android:id="@+id/list_historique"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -188,12 +188,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
-
-                    <CalendarView
-                        android:id="@+id/calendarview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:datePickerMode="calendar" />
 
 
                 </LinearLayout>
