@@ -3,6 +3,7 @@ package com.example.projet_e5_version_final;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -193,7 +194,9 @@ public class MainActivity extends AppCompatActivity {
     protected void change_menu_user(NavigationView navigationview){
         Menu menu = navigationview.getMenu();
         menu_moncompte = menu.add("Mon Compte");
+        menu_moncompte.setIcon(ContextCompat.getDrawable(MainActivity.this,R.drawable.baseline_account_circle_24));
         menu_log_out = menu.add("Log Out");
+        menu_log_out.setIcon(ContextCompat.getDrawable(MainActivity.this, R.drawable.baseline_lock_24));
         menu.removeItem(R.id.menu_se_connecter);
         menu.removeItem(R.id.menu_mon_compte);
         menu.removeItem(R.id.menu_inscription);
