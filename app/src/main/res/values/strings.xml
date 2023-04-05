@@ -36,6 +36,9 @@
     <string name="santé">Votre santé. Vos données </string>
     <string name="identité">Identité</string>
     <string name="mon_compte_connexion">Connexion</string>
-    <string name="mon_profil">MON PROFIL</string>
+    <string name="mon_profil">Mon profil</string>
+    <string name="mon_profil_tel">Téléphone</string>
+    <string name="mon_profil_mail">Mail</string>
+    <string name="mon_profil_mot_de_passe">Mot de passe</string>
 
 </resources>
