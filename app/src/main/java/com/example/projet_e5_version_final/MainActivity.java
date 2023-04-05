@@ -150,9 +150,15 @@ public class MainActivity extends AppCompatActivity {
         JSONArray jsonArray = new JSONArray(api.get_Values());
         if (jsonArray.length() > 0){
             ListView list_View_historique = findViewById(R.id.list_historique);
+            if (jsonArray.length() > 2){
+                BaseAdapter adapter_historique = new AdapterHitorique(this,jsonArray);
+                list_View_historique.setAdapter(adapter_historique);
+            }else{
+                BaseAdapter adapter_historique = new AdapterHitorique(this,jsonArray);
+                list_View_historique.setAdapter(adapter_historique);
+            }
 
-            BaseAdapter adapter_historique = new AdapterHitorique(this,jsonArray);
-            list_View_historique.setAdapter(adapter_historique);
+
 
             list_View_historique.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

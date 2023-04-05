@@ -176,7 +176,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <ListView
+                    <com.example.projet_e5_version_final.tools.NestedListView
                         android:id="@+id/list_historique"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
