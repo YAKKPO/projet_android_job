@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,6 +32,17 @@ public class LoginActivity extends AppCompatActivity {
 
         login();
         this.rv = new Regular_validation();
+
+        Button button_inscription_l = findViewById(R.id.button_inscription_l);
+
+        button_inscription_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(LoginActivity.this,InscriptionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     protected void login(){

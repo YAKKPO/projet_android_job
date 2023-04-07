@@ -84,7 +84,7 @@
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button9"
+            android:id="@+id/button_inscription_l"
             style="@style/MyButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -118,7 +119,15 @@ public class InscriptionActivity extends AppCompatActivity {
 
                         api.join();
 
-                        System.out.println(api.get_Values());
+                        JSONObject res_obj = new JSONObject(api.get_Values());
+
+                        if (res_obj.getString("res").equals("true")){
+                            Intent intent = new Intent();
+                            intent.setClass(InscriptionActivity.this,LoginActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+                        }
                     }else{
                         String values = "{email:" + email +
                                 ",password:" + password +
@@ -138,7 +147,15 @@ public class InscriptionActivity extends AppCompatActivity {
 
                         api.join();
 
-                        System.out.println(api.get_Values());
+                        JSONObject res_obj = new JSONObject(api.get_Values());
+
+                        if (res_obj.getString("res").equals("true")){
+                            Intent intent = new Intent();
+                            intent.setClass(InscriptionActivity.this,LoginActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }else{
