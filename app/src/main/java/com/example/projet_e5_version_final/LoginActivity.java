@@ -24,12 +24,12 @@ public class LoginActivity extends AppCompatActivity {
     private EditText ed_email,ed_password;
     private Button button_login;
     private Regular_validation rv;
-
+    public static LoginActivity instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        LoginActivity.instance = this;
         login();
         this.rv = new Regular_validation();
 
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(LoginActivity.this,InscriptionActivity.class);
                 startActivity(intent);
+                LoginActivity.instance.finish();
             }
         });
     }

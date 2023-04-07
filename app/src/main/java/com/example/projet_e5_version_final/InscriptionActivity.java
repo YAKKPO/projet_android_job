@@ -29,12 +29,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class InscriptionActivity extends AppCompatActivity {
-
+    public static InscriptionActivity instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
-
+        InscriptionActivity.instance = this;
         TextView tv_nom = findViewById(R.id.nom);
         set_Spinner();
 
@@ -125,6 +125,7 @@ public class InscriptionActivity extends AppCompatActivity {
                             Intent intent = new Intent();
                             intent.setClass(InscriptionActivity.this,LoginActivity.class);
                             startActivity(intent);
+                            InscriptionActivity.instance.finish();
                         }else{
                             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                         }
@@ -153,6 +154,7 @@ public class InscriptionActivity extends AppCompatActivity {
                             Intent intent = new Intent();
                             intent.setClass(InscriptionActivity.this,LoginActivity.class);
                             startActivity(intent);
+                            InscriptionActivity.instance.finish();
                         }else{
                             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                         }
