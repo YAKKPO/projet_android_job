@@ -20,6 +20,7 @@ import android.util.DisplayMetrics;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -131,6 +132,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
+
+
+
     }
 
     protected void show_historique() throws InterruptedException, JSONException {
@@ -144,9 +150,15 @@ public class MainActivity extends AppCompatActivity {
         JSONArray jsonArray = new JSONArray(api.get_Values());
         if (jsonArray.length() > 0){
             ListView list_View_historique = findViewById(R.id.list_historique);
+            if (jsonArray.length() > 2){
+                BaseAdapter adapter_historique = new AdapterHitorique(this,jsonArray);
+                list_View_historique.setAdapter(adapter_historique);
+            }else{
+                BaseAdapter adapter_historique = new AdapterHitorique(this,jsonArray);
+                list_View_historique.setAdapter(adapter_historique);
+            }
 
-            BaseAdapter adapter_historique = new AdapterHitorique(this,jsonArray);
-            list_View_historique.setAdapter(adapter_historique);
+
 
             list_View_historique.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
