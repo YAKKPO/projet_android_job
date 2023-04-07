@@ -1,2 +1,4 @@
-package com.example.projet_e5_version_final.adapters;public class AdaptaterRDV {
+package com.example.projet_e5_version_final.adapters;
+
+public class AdaptaterRDV {
 }

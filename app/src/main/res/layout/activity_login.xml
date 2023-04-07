@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#D52864FE"
+        android:background="@color/teal_200"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,9 +35,9 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
             android:ems="10"
             android:hint="@string/app_email"
+            android:background="@drawable/custom_textview"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:text="houzeyu7@gmail.com"
@@ -51,7 +51,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
             android:autofillHints=""
-            android:background="@drawable/bg_edittext_selector"
+            android:background="@drawable/custom_textview"
             android:ems="10"
             android:hint="@string/app_password"
             android:inputType="textPassword"
@@ -68,6 +68,7 @@
             android:layout_gravity="center"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
+            android:fontFamily="@font/k"
             android:text="@string/Login"
             android:textSize="16sp"
             />
@@ -93,6 +94,7 @@
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
             android:text="@string/Inscription"
+            android:fontFamily="@font/k"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
