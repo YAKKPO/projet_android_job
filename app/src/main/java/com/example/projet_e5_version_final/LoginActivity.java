@@ -53,15 +53,19 @@ public class LoginActivity extends AppCompatActivity {
                     api.join();
                     String api_string = api.get_Values();
                     JSONObject api_json = new JSONObject(api_string);
+                    if (api_json.getString("login").equals("true")){
+                        Toast.makeText(this, "Bonjour! " + api_json.getString("first_name") + " "
+                                + api_json.getString("last_name"), Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(this, "Bonjour! " + api_json.getString("first_name") + " "
-                            + api_json.getString("last_name"), Toast.LENGTH_SHORT).show();
+                        Intent intent_main = new Intent();
+                        intent_main.putExtra("type",api_json.getString("type"));
+                        intent_main.putExtra("id",api_json.getString("id"));
+                        intent_main.setClass(LoginActivity.this,MainActivity.class);
+                        startActivity(intent_main);
+                    }else{
+                        Toast.makeText(this, "Password Incorrect", Toast.LENGTH_SHORT).show();
+                    }
 
-                    Intent intent_main = new Intent();
-                    intent_main.putExtra("type",api_json.getString("type"));
-                    intent_main.putExtra("id",api_json.getString("id"));
-                    intent_main.setClass(LoginActivity.this,MainActivity.class);
-                    startActivity(intent_main);
 
                 } catch (JSONException | InterruptedException e) {
                     throw new RuntimeException(e);

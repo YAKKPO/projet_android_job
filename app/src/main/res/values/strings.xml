@@ -41,5 +41,6 @@
     <string name="mon_profil_mail">Mail</string>
     <string name="mon_profil_mot_de_passe">Mot de passe</string>
     <string name="app_default">Default</string>
+    <string name="app_docteur">Je suis docteur</string>
 
 </resources>
