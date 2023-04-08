@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".InscriptionActivity">
 
     <ScrollView
@@ -13,8 +14,10 @@
         android:contentDescription="@string/Inscription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,6 +51,7 @@
                 android:hint="@string/app_email"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
+                android:text="houzeyu7@gmail.com"
                 android:textColorHint="#78909C"
                 tools:ignore="HardcodedText,TextContrastCheck,TextFields" />
 
@@ -63,6 +67,7 @@
                 android:hint="@string/mot_de_passe"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
+                android:text="Jiojio000608."
                 android:textColorHint="#78909C"
                 tools:ignore="TextContrastCheck" />
 
@@ -78,6 +83,7 @@
                 android:hint="@string/confirmer_mot_de_passe"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
+                android:text="Jiojio000608."
                 tools:ignore="LabelFor" />
 
             <EditText
@@ -92,6 +98,7 @@
                 android:hint="@string/nom"
                 android:inputType="text"
                 android:minHeight="48dp"
+                android:text="HOU"
                 android:textColorHint="#757575"
                 tools:ignore="LabelFor,TextContrastCheck" />
 
@@ -107,6 +114,7 @@
                 android:hint="@string/prenom"
                 android:inputType="text"
                 android:minHeight="48dp"
+                android:text="ZEYU"
                 tools:ignore="LabelFor" />
 
             <EditText
@@ -121,6 +129,7 @@
                 android:hint="@string/numéro_de_telephone"
                 android:inputType=""
                 android:minHeight="48dp"
+                android:text="06 95 86 72 74"
                 tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck" />
 
             <EditText
@@ -135,6 +144,7 @@
                 android:hint="@string/date_de_naissance"
                 android:inputType="text"
                 android:minHeight="48dp"
+                android:text="1977-11-11"
                 tools:ignore="LabelFor" />
 
             <Spinner
@@ -161,10 +171,20 @@
                 android:hint="@string/adresse"
                 android:inputType="text"
                 android:minHeight="48dp"
+                android:text="733 rue nsl spk 75013 paris"
                 tools:ignore="LabelFor" />
 
+            <CheckBox
+                android:id="@+id/checkBox_doc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="@string/app_docteur" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_login"
+                android:id="@+id/button_inscription"
                 style="@style/MyButtonStyle"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"

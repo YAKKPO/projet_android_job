@@ -42,13 +42,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-    private MenuItem menu_moncompte,menu_log_out;
+    private MenuItem menu_moncompte,menu_log_out,menu_message,menu_rdv,menu_setting;
     private String id,type;
+    public static MainActivity instance;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MainActivity.instance = this;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenWidth = displayMetrics.widthPixels;
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         type = info_login.getStringExtra("type");
 
         if (id != null && type != null){
+            LoginActivity.instance.finish();
             try {
                 change_title(navigationView);
                 show_historique();
@@ -199,19 +202,23 @@ public class MainActivity extends AppCompatActivity {
 
         tv_titie1.setText("Bonjour !");
         tv_title2.setText(api_json.getString("first_name") + " " + api_json.getString("last_name"));
-
-
     }
 
     protected void change_menu_user(NavigationView navigationview){
         Menu menu = navigationview.getMenu();
         menu_moncompte = menu.add("Mon Compte");
         menu_moncompte.setIcon(ContextCompat.getDrawable(MainActivity.this,R.drawable.baseline_account_circle_24));
+        menu_rdv = menu.add("RDV");
+        menu_rdv.setIcon(ContextCompat.getDrawable(MainActivity.this,R.drawable.baseline_calendar_month_24));
+        menu_message = menu.add("Messages");
+        menu_message.setIcon(ContextCompat.getDrawable(MainActivity.this,R.drawable.baseline_comment_24));
+        menu_setting = menu.add("PARAMETRES");
+        menu_setting.setIcon(ContextCompat.getDrawable(MainActivity.this,R.drawable.baseline_miscellaneous_services_24));
         menu_log_out = menu.add("Log Out");
         menu_log_out.setIcon(ContextCompat.getDrawable(MainActivity.this, R.drawable.baseline_lock_24));
         menu.removeItem(R.id.menu_se_connecter);
-        menu.removeItem(R.id.menu_mon_compte);
         menu.removeItem(R.id.menu_inscription);
+        menu.removeItem(R.id.menu_paramétres);
     }
 
 
