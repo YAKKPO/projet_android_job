@@ -78,7 +78,7 @@ class api{
         return call_user_func_array(array($this,$name_function),$options);
     }
 
-    // {email:houzeyu7@gmail.com}
+    // {email:houzeyu7@gmail.com,password:Jiojio000608.}
     public function login(){
         $sql_patients = "SELECT * FROM patients WHERE email = :email";
         $sql_doctors = "SELECT * FROM doctors WHERE email = :email";
@@ -94,13 +94,29 @@ class api{
 
         $res_patients = $stmt_partients->fetch(PDO::FETCH_ASSOC);
         $res_doctors = $stmt_doctors->fetch(PDO::FETCH_ASSOC);
-
-        if (count($res_patients) > 0){
-            $res_patients["type"] = "patient";
-            echo json_encode($res_patients);
+        
+        if ($res_doctors === false ){
+            if (password_verify($this->obj_url->values["password"],$res_patients["password"])){
+                $res_patients["type"] = "patient";
+                $res_patients["login"] = "true";
+                echo json_encode($res_patients);
+            }else{
+                $message = [
+                    "login" => "false"
+                ];
+                echo json_encode($message);
+            }
         }else{
-            $res_doctors["type"] = "docteur";
-            echo json_encode($res_doctors);
+            if (password_verify($this->obj_url->values["password"],$res_doctors["password"])){
+                $res_doctors["type"] = "docteur";
+                echo json_encode($res_doctors);
+            }else{
+                $message = [
+                    "login" => "false"
+                ];
+                echo json_encode($message);
+            }
+
         }
     }
 
@@ -145,6 +161,59 @@ class api{
 
         $stmt_patients->bindParam(':email',$this->obj_url->values["email"]);
         $stmt_doctors->bindParam(':email',$this->obj_url->values["email"]);
+
+        $stmt_patients->execute();
+        $stmt_doctors->execute();
+
+        $res_patients = $stmt_patients->fetch(PDO::FETCH_ASSOC);
+        $res_doctor = $stmt_doctors->fetch(PDO::FETCH_ASSOC);
+
+        if (count($res_patients) > 0){
+            $res_patients["type"] = "patient";
+            echo json_encode($res_patients);
+        }else{
+            $res_doctor["type"] = "doctor";
+            echo json_encode($res_doctor);
+        }
+    }
+
+    public function find_user(){
+        $sql_patients = "SELECT * FROM patients";
+        $sql_doctors = "SELECT * FROM doctors";
+
+        $stmt_patients = $this->conn->prepare($sql_patients);
+        $stmt_doctors = $this->conn->prepare($sql_doctors);
+
+        $stmt_patients->execute();
+        $stmt_doctors->execute();
+
+        $res_patients = $stmt_patients->fetchall(PDO::FETCH_ASSOC);
+        $res_doctor = $stmt_doctors->fetchall(PDO::FETCH_ASSOC);
+
+        if (count($res_patients) > 0){
+            foreach($res_patients as $res){
+                $res["type"] = "patient";
+            }
+            echo json_encode($res_patients);
+        }else{
+            foreach($res_doctor as $res){
+                $res["type"] = "doctor";
+            }
+            
+            echo json_encode($res_doctor);
+        }
+    }
+
+    //{id:11}
+    public function find_user_By_id(){
+        $sql_patients = "SELECT * FROM patients WHERE id = :id";
+        $sql_doctors = "SELECT * FROM doctors WHERE id = :id";
+
+        $stmt_patients = $this->conn->prepare($sql_patients);
+        $stmt_doctors = $this->conn->prepare($sql_doctors);
+
+        $stmt_patients->bindParam(':id',$this->obj_url->values["id"]);
+        $stmt_doctors->bindParam(':id',$this->obj_url->values["id"]);
 
         $stmt_patients->execute();
         $stmt_doctors->execute();
@@ -234,14 +303,15 @@ class api{
     //{type:patient,email:sophiabrown@example.com,first_name:hou,last_name:zeyu,birthdate:1997-05-12,,phone_number:000122333,address:3333333}
     public function update_user_info(){
         if ($this->obj_url->values["type"] === "patient"){
-            $sql = "UPDATE patients SET first_name = :first_name,last_name = :last_name,birthdate = :birthdate,phone_number = :phone_number,address = :address WHERE email = :email";
+            $sql = "UPDATE patients SET first_name = :first_name,last_name = :last_name,birthdate = :birthdate,phone_number = :phone_number,address = :address WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
+
             $stmt->bindParam("first_name",$this->obj_url->values["first_name"]);
             $stmt->bindParam("last_name",$this->obj_url->values["last_name"]);
             $stmt->bindParam("birthdate",$this->obj_url->values["birthdate"]);
             $stmt->bindParam("phone_number",$this->obj_url->values["phone_number"]);
             $stmt->bindParam("address",$this->obj_url->values["address"]);
-            $stmt->bindParam("email",$this->obj_url->values["email"]);
+            $stmt->bindParam("id",$this->obj_url->values["id"]);
 
             $res = $stmt->execute();
 
@@ -251,11 +321,11 @@ class api{
 
             echo json_encode($message);
         }else{
-            $sql = "UPDATE doctors SET phone_number = :phone_number,office_address = :office_address WHERE email = :email";
+            $sql = "UPDATE doctors SET phone_number = :phone_number,office_address = :office_address WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam("phone_number",$this->obj_url->values["phone_number"]);
             $stmt->bindParam("office_address",$this->obj_url->values["office_address"]);
-            $stmt->bindParam("email",$this->obj_url->values["email"]);
+            $stmt->bindParam("id",$this->obj_url->values["id"]);
 
             $res = $stmt->execute();
 
@@ -266,6 +336,143 @@ class api{
             echo json_encode($message);
         }
     }
+
+    //{id_patient:11}
+    public function find_historique_By_patientId(){
+
+        $sql_appointments = "SELECT doctor_availability_id FROM appointments WHERE patient_id = :id_patient";
+        $stmt_appointments = $this->conn->prepare($sql_appointments);
+        $stmt_appointments->bindParam("id_patient",$this->obj_url->values["id_patient"]);
+        $stmt_appointments->execute();
+        $res_appointments = $stmt_appointments->fetchAll(PDO::FETCH_ASSOC);
+
+        $string_doctor_availability_id = "";
+        foreach ($res_appointments as $ra){
+            $string_doctor_availability_id = $string_doctor_availability_id . $ra["doctor_availability_id"] . ",";
+        }
+        $string_doctor_availability_id_res = rtrim($string_doctor_availability_id,",");
+
+        $sql_doctor_availabilities = "SELECT doctor_id FROM doctor_availabilities WHERE id IN ($string_doctor_availability_id_res)";
+        $stmt_doctor_availabilities = $this->conn->prepare($sql_doctor_availabilities);
+        $stmt_doctor_availabilities->execute();
+        $res_doctor_availabilities_id = $stmt_doctor_availabilities->fetchAll(PDO::FETCH_ASSOC);
+
+        $array_final = [];
+
+        foreach ($res_doctor_availabilities_id as $doc_id => $key){
+
+            $sql_date = "SELECT available_from,available_to FROM doctor_availabilities WHERE id = " . $res_appointments[$doc_id]["doctor_availability_id"];
+
+            $stmt_date = $this->conn->prepare($sql_date);
+            $stmt_date->execute();
+            $res_date = $stmt_date->fetchAll(PDO::FETCH_ASSOC);
+
+            $sql_doc = "SELECT first_name,last_name,office_address,phone_number,email,specialty FROM doctors WHERE id = " . $key["doctor_id"];
+            $stmt_doc = $this->conn->prepare($sql_doc);
+            $stmt_doc->execute();
+            $res_doc = $stmt_doc->fetchAll(PDO::FETCH_ASSOC);
+
+            $res_doc[0]["available_from"] = $res_date[0]["available_from"];
+            $res_doc[0]["available_to"] = $res_date[0]["available_to"];
+
+            array_push($array_final,$res_doc[0]);
+        }
+
+
+        echo json_encode($array_final);
+
+
+
+        //echo json_encode($res_doctor_availabilities_id);
+    }
+
+    public function inscription() {
+        if ($this->obj_url->values["type"] === "patient"){
+            $sql_patient = "INSERT INTO patients (first_name, last_name, birthdate, gender, phone_number, email, address, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            $stmt_patient = $this->conn->prepare($sql_patient);
+
+            $first_name = $this->obj_url->values["first_name"];
+            $last_name = $this->obj_url->values["last_name"];
+            $birthdate = $this->obj_url->values["birthdate"];
+            $gender = $this->obj_url->values["genre"];
+            $phone_number = $this->obj_url->values["phone_number"];
+            $email = $this->obj_url->values["email"];
+            $address = $this->obj_url->values["address"];
+            $password = $this->obj_url->values["password"];
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new InvalidArgumentException("Invalid email format");
+            }
+
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt_patient->bindParam(1, $first_name);
+            $stmt_patient->bindParam(2, $last_name);
+            $stmt_patient->bindParam(3, $birthdate);
+            $stmt_patient->bindParam(4, $gender);
+            $stmt_patient->bindParam(5, $phone_number);
+            $stmt_patient->bindParam(6, $email);
+            $stmt_patient->bindParam(7, $address);
+            $stmt_patient->bindParam(8, $hashed_password);
+
+            $result = $stmt_patient->execute();
+
+            if ($result) {
+                $message = [
+                    "res" => "true"
+                ];
+                echo json_encode($message);
+            } else {
+                $message = [
+                    "res" => "false"
+                ];
+                echo json_encode($message);
+            }
+        }else{
+            $sql_doc = "INSERT INTO doctors (first_name, last_name, specialty, phone_number, email, office_address, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            $stmt_doc = $this->conn->prepare($sql_doc);
+
+            $first_name = $this->obj_url->values["first_name"];
+            $last_name = $this->obj_url->values["last_name"];
+            $specialty= $this->obj_url->values["specialty"];
+            $phone_number = $this->obj_url->values["phone_number"];
+            $email = $this->obj_url->values["email"];
+            $office_address = $this->obj_url->values["office_address"];
+            $password = $this->obj_url->values["password"];
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new InvalidArgumentException("Invalid email format");
+            }
+
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt_doc->bindParam(1, $first_name);
+            $stmt_doc->bindParam(2, $last_name);
+            $stmt_doc->bindParam(3, $specialty);
+            $stmt_doc->bindParam(4, $phone_number);
+            $stmt_doc->bindParam(5, $email);
+            $stmt_doc->bindParam(6, $office_address);
+            $stmt_doc->bindParam(7, $hashed_password);
+
+            $result = $stmt_doc->execute();
+
+            if ($result) {
+                $message = [
+                    "res" => "true"
+                ];
+                echo json_encode($message);
+            } else {
+                $message = [
+                    "res" => "false"
+                ];
+                echo json_encode($message);
+            }
+        }
+
+    }
+
 }
 
 
