@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent_main.putExtra("id",api_json.getString("id"));
                         intent_main.setClass(LoginActivity.this,MainActivity.class);
                         startActivity(intent_main);
+                        LoginActivity.instance.finish();
                     }else{
                         Toast.makeText(this, "Password Incorrect", Toast.LENGTH_SHORT).show();
                     }
