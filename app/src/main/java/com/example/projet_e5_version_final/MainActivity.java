@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MainActivity.instance = this;
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenWidth = displayMetrics.widthPixels;
@@ -70,9 +71,16 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent info_login = getIntent();
+        id = info_login.getStringExtra("id");
+        type = info_login.getStringExtra("type");
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
+
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 drawerLayout.closeDrawer(GravityCompat.START);
                 System.out.println(item.getTitle());
                 if(item.getTitle().equals("SE CONNECTER ")){
@@ -80,11 +88,19 @@ public class MainActivity extends AppCompatActivity {
                     intent_login.setClass(MainActivity.this,LoginActivity.class);
                     startActivity(intent_login);
                 }
-                System.out.println(item);
+
                 if(item.getTitle().equals("S'INSCRIRE")){
                     Intent intent_login = new Intent();
                     intent_login.setClass(MainActivity.this,InscriptionActivity.class);
                     startActivity(intent_login);
+                }
+
+                if(item.getTitle().equals("Mon Compte")){
+                    Intent intent_mon_compte = new Intent();
+                    intent_mon_compte.putExtra("id",id);
+                    intent_mon_compte.putExtra("type",type);
+                    intent_mon_compte.setClass(MainActivity.this,MonCompteActivity.class);
+                    startActivity(intent_mon_compte);
                 }
 
                 if (item.getTitle().equals("Log Out")){
@@ -110,10 +126,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Intent info_login = getIntent();
-        id = info_login.getStringExtra("id");
-        type = info_login.getStringExtra("type");
-
         if (id != null && type != null){
             LoginActivity.instance.finish();
             try {
@@ -133,13 +145,6 @@ public class MainActivity extends AppCompatActivity {
             list_View_historique_non.setAdapter(adapterShowLogin);
 
         }
-
-
-
-
-
-
-
     }
 
     protected void show_historique() throws InterruptedException, JSONException {
