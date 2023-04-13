@@ -16,3 +16,10 @@
                                 ",type:" + "patient"
                                 + "}";
 </pre>
+
+### 2. ArrayList est créée en utilisant un constructeur qui prend un tableau de valeurs comme argument. 
+
+<pre>
+      ArrayList<String> listValues = new ArrayList<>(Arrays.asList("inscription", "None", "Jiojio000608.", values));
+</pre>
+
