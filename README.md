@@ -1,8 +1,5 @@
 # Projet_android_job
 
-
-
-
 ## Comment utiliser les API (JAVA) :
 
 ### 1. Crée une chaîne au format JSON qui contient plusieurs paires de clé-valeur.
@@ -48,5 +45,15 @@
 
 <pre>
       api.get_Values();
+</pre>
+
+### 7.En fonction des données renvoyées par l'API, déterminez si vous souhaitez les convertir au format JsonObj ou au format JsonArray. Voici deux exemples simples ci-dessous :
+
+<pre> 
+      // JsonObj 
+      JSONObject res_obj = new JSONObject(api.get_Values());
+    
+      //JsonArray
+      JSONArray jsonArray = new JSONArray(api.get_Values());
 </pre>
 
