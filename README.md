@@ -2,7 +2,10 @@
 
 ## Comment utiliser les API (JAVA) :
 
-### 1. String values = "{email:" + email +
+### 1. 
+
+<pre>
+  String values = "{email:" + email +
                                 ",password:" + password +
                                 ",first_name:" + nom +
                                 ",last_name:" + prenom +
@@ -12,3 +15,4 @@
                                 ",genre:" + genre +
                                 ",type:" + "patient"
                                 + "}";
+</pre>
