@@ -47,13 +47,13 @@
       api.get_Values();
 </pre>
 
-### 7.En fonction des données renvoyées par l'API, déterminez si vous souhaitez les convertir au format JsonObj ou au format JsonArray. Voici deux exemples simples ci-dessous :
+### 7.En fonction des données renvoyées par l'API, déterminez si vous souhaitez les convertir au format JSONObject ou au format JSONArray. Voici deux exemples simples ci-dessous :
 
 <pre> 
-      // JsonObj 
+      // JSONObject 
       JSONObject res_obj = new JSONObject(api.get_Values());
     
-      //JsonArray
+      //JSONArray
       JSONArray jsonArray = new JSONArray(api.get_Values());
 </pre>
 
