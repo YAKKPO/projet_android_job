@@ -23,3 +23,8 @@
       ArrayList<String> listValues = new ArrayList<>(Arrays.asList("inscription", "None", "Jiojio000608.", values));
 </pre>
 
+### 3. Un objet de la classe "Api" est créé en utilisant le constructeur qui prend une instance d'ArrayList comme argument.
+
+<pre>
+      Api api = new Api(listValues);
+</pre>
