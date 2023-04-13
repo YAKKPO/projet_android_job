@@ -29,7 +29,7 @@
       Api api = new Api(listValues);
 </pre>
 
-### 4.  la méthode "start()" est appelée sur cet objet "api". Cette méthode démarre l'exécution du thread associé à l'objet "api", qui exécutera le code défini dans la méthode "run()" de la classe "Api".
+### 4.  La méthode "start()" est appelée sur cet objet "api". Cette méthode démarre l'exécution du thread associé à l'objet "api", qui exécutera le code défini dans la méthode "run()" de la classe "Api".
 
 <pre>
       api.start();
