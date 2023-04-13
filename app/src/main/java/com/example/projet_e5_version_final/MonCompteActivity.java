@@ -30,11 +30,11 @@ public class MonCompteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mon_compte);
         MonCompteActivity.instance = this;
 
-        ed_nom = findViewById(R.id.ed_mc_nom);
-        ed_prenom = findViewById(R.id.ed_mc_prenom);
-        ed_address = findViewById(R.id.ed_mc_address);
-        ed_tele = findViewById(R.id.ed_mc_tele);
-        ed_date = findViewById(R.id.ed_mc_date);
+        //ed_nom = findViewById(R.id.ed_mc_nom);
+        //ed_prenom = findViewById(R.id.ed_mc_prenom);
+        //ed_address = findViewById(R.id.ed_mc_address);
+        //ed_tele = findViewById(R.id.ed_mc_tele);
+        //ed_date = findViewById(R.id.ed_mc_date);
 
         try {
             get_user_info();
@@ -65,7 +65,7 @@ public class MonCompteActivity extends AppCompatActivity {
         ed_tele.setText(json_obj.getString("phone_number"));
         ed_date.setText(json_obj.getString("birthdate"));
 
-        button_change = findViewById(R.id.button_mc_change);
+        //button_change = findViewById(R.id.button_mc_change);
         button_change.setOnClickListener(new View.OnClickListener() {
             @Override
 
