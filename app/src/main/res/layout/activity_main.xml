@@ -174,10 +174,24 @@
                 <ListView
                     android:id="@+id/list_historique"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    tools:ignore="NestedScrolling" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/main_p4_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
+
+
 
     </FrameLayout>
 

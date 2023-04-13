@@ -19,26 +19,11 @@
         android:title="S\'INSCRIRE"
         tools:ignore="HardcodedText" />
     <item
-        android:id="@+id/menu_rdv"
-        android:icon="@drawable/baseline_calendar_month_24"
-        android:title="RDV"
-        tools:ignore="HardcodedText" />
-    <item
-        android:id="@+id/menu_message"
-        android:icon="@drawable/baseline_message_24"
-        android:iconTint="#2196F3"
-        android:title="MESSAGE"
-        tools:ignore="HardcodedText" />
-    <item
         android:id="@+id/menu_paramétres"
         android:icon="@drawable/baseline_miscellaneous_services_24"
         android:title="PARAMETRES"
         tools:ignore="HardcodedText" />
-    <item
-    android:id="@+id/menu_mon_compte"
-    android:icon="@drawable/baseline_manage_accounts_24"
-    android:title="MON COMPTE"
-    tools:ignore="HardcodedText" />
+
 
 
 </menu>
