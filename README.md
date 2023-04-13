@@ -5,7 +5,7 @@
 ### 1. 
 
 <pre>
-  String values = "{email:" + email +
+      String values = "{email:" + email +
                                 ",password:" + password +
                                 ",first_name:" + nom +
                                 ",last_name:" + prenom +
