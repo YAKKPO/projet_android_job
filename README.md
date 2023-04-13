@@ -40,3 +40,10 @@
 <pre>
       api.join();
 </pre>
+
+### 6.Obtenir le résultat renvoyé par l'API (type chaîne).
+
+<pre>
+      api.get_Values();
+</pre>
+
