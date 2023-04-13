@@ -212,7 +212,6 @@
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="358dp"
-            android:dateTextAppearance="@style/DateTextAppearance"
             android:minDate="01/01/2023"
             android:maxDate="12/31/2025" />
 
