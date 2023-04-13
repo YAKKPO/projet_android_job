@@ -1,5 +1,8 @@
 # Projet_android_job
 
+
+
+
 ## Comment utiliser les API (JAVA) :
 
 ### 1. Crée une chaîne au format JSON qui contient plusieurs paires de clé-valeur.
