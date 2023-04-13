@@ -34,3 +34,9 @@
 <pre>
       api.start();
 </pre>
+
+### 5. La méthode "join()" est utilisée pour attendre que l'exécution du thread associé à l'objet "api" soit terminée avant de continuer l'exécution du programme principal. 
+
+<pre>
+      api.join();
+</pre>
