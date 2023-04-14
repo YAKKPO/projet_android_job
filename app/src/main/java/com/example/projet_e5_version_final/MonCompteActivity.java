@@ -30,11 +30,10 @@ public class MonCompteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mon_compte);
         MonCompteActivity.instance = this;
 
-        //ed_nom = findViewById(R.id.ed_mc_nom);
-        //ed_prenom = findViewById(R.id.ed_mc_prenom);
-        //ed_address = findViewById(R.id.ed_mc_address);
-        //ed_tele = findViewById(R.id.ed_mc_tele);
-        //ed_date = findViewById(R.id.ed_mc_date);
+        ed_nom = findViewById(R.id.ed_id_mc);
+        ed_address = findViewById(R.id.ed_address_mc);
+        ed_tele = findViewById(R.id.ed_tele_mc);
+        ed_date = findViewById(R.id.ed_email_mc);
 
         try {
             get_user_info();
@@ -60,12 +59,11 @@ public class MonCompteActivity extends AppCompatActivity {
         JSONObject json_obj = new JSONObject(api.get_Values());
 
         ed_nom.setText(json_obj.getString("first_name"));
-        ed_prenom.setText(json_obj.getString("last_name"));
         ed_address.setText(json_obj.getString("address"));
         ed_tele.setText(json_obj.getString("phone_number"));
         ed_date.setText(json_obj.getString("birthdate"));
 
-        //button_change = findViewById(R.id.button_mc_change);
+        button_change = findViewById(R.id.btn_change_mc);
         button_change.setOnClickListener(new View.OnClickListener() {
             @Override
 
@@ -73,19 +71,16 @@ public class MonCompteActivity extends AppCompatActivity {
                 button_change.setText("SAVE");
 
                 ed_nom.setEnabled(true);
-                ed_prenom.setEnabled(true);
                 ed_address.setEnabled(true);
                 ed_tele.setEnabled(true);
                 ed_date.setEnabled(true);
 
                 String new_nom = String.valueOf(ed_nom.getText());
-                String new_prenom = String.valueOf(ed_prenom.getText());
                 String new_address = String.valueOf(ed_address.getText());
                 String new_tele = String.valueOf(ed_tele.getText());
                 String new_date = String.valueOf(ed_date.getText());
 
                 String values = "{first_name:" + new_nom
-                        + ",last_name:" + new_prenom
                         + ",address:" + new_address
                         + ",phone_number:" + new_tele
                         + ",birthdate:" + new_date

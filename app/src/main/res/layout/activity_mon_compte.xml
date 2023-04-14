@@ -41,11 +41,11 @@
                     android:layout_weight="1"
                     android:background="@color/teal_200"
                     android:fontFamily="@font/k"
+                    android:gravity="fill"
                     android:paddingTop="20dp"
                     android:paddingRight="100dp"
                     android:paddingBottom="10dp"
                     android:text="Votre sante .vos donnees"
-                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpUsage,TextContrastCheck,TextSizeCheck,VisualLintBounds" />
@@ -54,102 +54,128 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="235dp"
+            android:layout_height="match_parent"
             android:background="@color/teal_200"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView17"
+            <EditText
+                android:id="@+id/ed_id_mc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="7"
+                android:autofillHints=""
+                android:enabled="false"
                 android:fontFamily="@font/adamina"
+                android:minHeight="48dp"
                 android:text="Identité"
                 android:textColor="#004D40"
                 android:textSize="15dp"
-                tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+                tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/tv_mp_mc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:drawableLeft="@drawable/baseline_account_circle_24"
+                android:layout_marginStart="10dp"
+                android:layout_weight="20"
                 android:fontFamily="@font/k"
-                android:text="Mon profil"
+                android:gravity="fill"
+                android:text="@string/app_profil"
                 android:textColor="#5E35B1"
-                 />
+                app:drawableLeftCompat="@drawable/baseline_account_circle_24" />
 
             <TextView
-                android:id="@+id/textView26"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="7"
-                android:fontFamily="@font/adamina"
-                android:text="Connexion"
-                android:textColor="#004D40"
-                android:textSize="15dp"
-                tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
-
-            <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/tv_tel_mc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="20"
                 android:drawableLeft="@drawable/baseline_call_24"
                 android:fontFamily="@font/k"
+                android:gravity="fill"
                 android:text="TEl"
                 android:textColor="#5E35B1"
                 android:textSize="15dp"
                 tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck,TextSizeCheck,UseCompatTextViewDrawableXml" />
 
+            <EditText
+                android:enabled="false"
+                android:id="@+id/ed_tele_mc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                tools:ignore="HardcodedText,LabelFor,DuplicateSpeakableTextCheck,VisualLintTextFieldSize" />
+
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/tv_em_mc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="20"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:fontFamily="@font/k"
+                android:gravity="fill"
                 android:text="Email"
-                android:textColor="@color/white"
+                android:textColor="#5E35B1"
                 android:textSize="15dp"
                 tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck,UseCompatTextViewDrawableXml,TextContrastCheck" />
 
+            <EditText
+                android:id="@+id/ed_email_mc"
+                android:enabled="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:text="Name"
+                android:autofillHints=""
+                tools:ignore="HardcodedText,LabelFor,VisualLintTextFieldSize" />
+
             <TextView
-                android:id="@+id/textView29"
+                android:id="@+id/tv_mdp_mc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="20"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:fontFamily="@font/k"
-                android:text="Mot de passe"
+                android:gravity="fill"
+                android:text="Address"
                 android:textColor="#5E35B1"
                 android:textSize="15dp"
                 tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck,UseCompatTextViewDrawableXml" />
 
-            <TextView
-                android:id="@+id/textView30"
+            <EditText
+                android:id="@+id/ed_address_mc"
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/adamina"
-                android:text="Securite"
+                android:layout_weight="7"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:autofillHints=""
+                tools:ignore="HardcodedText,LabelFor,VisualLintTextFieldSize" />
 
-                android:textColor="#004D40"
-                android:textSize="15dp"
-                tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+            <Button
+                android:id="@+id/btn_change_mc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="Button"
+                android:textColor="#F9FBE7"
+                tools:ignore="HardcodedText,VisualLintButtonSize" />
 
         </LinearLayout>
     </LinearLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
-
 
