@@ -90,3 +90,26 @@
         }
     }
 </pre>
+
+#### PS: Email = Send_email
+
+<pre>
+
+// send email = houzeyu7@gmail.com
+
+{
+    "id": "11",
+    "first_name": "Zeyu",
+    "last_name": "",
+    "birthdate": "1998-05-12",
+    "gender": "M",
+    "phone_number": "0695867276",
+    "email": "houzeyu7@gmail.com",
+    "address": "33 rue louise 75013 paris ",
+    "password": "$2y$10$d/J43sCEeHej3R66mN7Z/ORVD0fdeZoBWIhEgjKVopGGVZMJEUTCO",
+    "type": "patient"
+}
+
+
+</pre>
+
