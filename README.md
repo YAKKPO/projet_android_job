@@ -60,56 +60,5 @@
 ##### [Cliquez ici pour voir la documentation officielle de "org.json"](https://stleary.github.io/JSON-java/index.html)
 
 # API Explication
-
-### 1.find_user_By_email
-
-<pre>
-      //{email:houzeyu7@gmail.com}
-    public function find_user_By_email(){
-        $sql_patients = "SELECT * FROM patients WHERE email = :email";
-        $sql_doctors = "SELECT * FROM doctors WHERE email = :email";
-
-        $stmt_patients = $this->conn->prepare($sql_patients);
-        $stmt_doctors = $this->conn->prepare($sql_doctors);
-
-        $stmt_patients->bindParam(':email',$this->obj_url->values["email"]);
-        $stmt_doctors->bindParam(':email',$this->obj_url->values["email"]);
-
-        $stmt_patients->execute();
-        $stmt_doctors->execute();
-
-        $res_patients = $stmt_patients->fetch(PDO::FETCH_ASSOC);
-        $res_doctor = $stmt_doctors->fetch(PDO::FETCH_ASSOC);
-
-        if (count($res_patients) > 0){
-            $res_patients["type"] = "patient";
-            echo json_encode($res_patients);
-        }else{
-            $res_doctor["type"] = "doctor";
-            echo json_encode($res_doctor);
-        }
-    }
-</pre>
-
-#### PS: Email = Send_email
-
-<pre>
-
-// send email = houzeyu7@gmail.com
-
-{
-    "id": "11",
-    "first_name": "Zeyu",
-    "last_name": "",
-    "birthdate": "1998-05-12",
-    "gender": "M",
-    "phone_number": "0695867276",
-    "email": "houzeyu7@gmail.com",
-    "address": "33 rue louise 75013 paris ",
-    "password": "$2y$10$d/J43sCEeHej3R66mN7Z/ORVD0fdeZoBWIhEgjKVopGGVZMJEUTCO",
-    "type": "patient"
-}
-
-
-</pre>
+ 
 
