@@ -60,3 +60,33 @@
 ##### [Cliquez ici pour voir la documentation officielle de "org.json"](https://stleary.github.io/JSON-java/index.html)
 
 # API Explication
+
+### 1.find_user_By_email
+
+<pre>
+      //{email:houzeyu7@gmail.com}
+    public function find_user_By_email(){
+        $sql_patients = "SELECT * FROM patients WHERE email = :email";
+        $sql_doctors = "SELECT * FROM doctors WHERE email = :email";
+
+        $stmt_patients = $this->conn->prepare($sql_patients);
+        $stmt_doctors = $this->conn->prepare($sql_doctors);
+
+        $stmt_patients->bindParam(':email',$this->obj_url->values["email"]);
+        $stmt_doctors->bindParam(':email',$this->obj_url->values["email"]);
+
+        $stmt_patients->execute();
+        $stmt_doctors->execute();
+
+        $res_patients = $stmt_patients->fetch(PDO::FETCH_ASSOC);
+        $res_doctor = $stmt_doctors->fetch(PDO::FETCH_ASSOC);
+
+        if (count($res_patients) > 0){
+            $res_patients["type"] = "patient";
+            echo json_encode($res_patients);
+        }else{
+            $res_doctor["type"] = "doctor";
+            echo json_encode($res_doctor);
+        }
+    }
+</pre>
