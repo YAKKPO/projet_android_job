@@ -60,5 +60,12 @@
 ##### [Cliquez ici pour voir la documentation officielle de "org.json"](https://stleary.github.io/JSON-java/index.html)
 
 # API Explication
+
+## find_user_By_email 
+
+### 1. Crée une fonctio trouver utilisateur grace a son email  
  
+ <pre>
+ 
+ <pre>
 
