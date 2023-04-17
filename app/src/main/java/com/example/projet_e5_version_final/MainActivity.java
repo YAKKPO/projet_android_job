@@ -103,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent_mon_compte);
                 }
 
+                if(item.getTitle().equals("RDV")){
+                    Intent intent_rdv = new Intent();
+                    intent_rdv.putExtra("id",id);
+                    intent_rdv.putExtra("type",type);
+                    intent_rdv.setClass(MainActivity.this,RDVActivity.class);
+                    startActivity(intent_rdv);
+                }
+
                 if (item.getTitle().equals("Log Out")){
 
                     //menu

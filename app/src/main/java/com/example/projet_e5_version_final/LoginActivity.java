@@ -65,7 +65,9 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     api.join();
                     String api_string = api.get_Values();
+                    System.out.println(api_string);
                     JSONObject api_json = new JSONObject(api_string);
+
                     if (api_json.getString("login").equals("true")){
                         Toast.makeText(this, "Bonjour! " + api_json.getString("first_name") + " "
                                 + api_json.getString("last_name"), Toast.LENGTH_SHORT).show();
