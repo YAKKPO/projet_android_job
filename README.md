@@ -63,7 +63,7 @@
 
 ## find_user_By_email 
 
-### 1. Crée une fonctio trouver utilisateur grace a son email  
+### 1. Crée une fonction qui permet de trouver un utilisateur grâce à son email  
  
  <pre>
  
