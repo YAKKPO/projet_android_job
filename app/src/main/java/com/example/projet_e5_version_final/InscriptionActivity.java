@@ -122,6 +122,7 @@ public class InscriptionActivity extends AppCompatActivity {
                         JSONObject res_obj = new JSONObject(api.get_Values());
 
                         if (res_obj.getString("res").equals("true")){
+                            Toast.makeText(this,"User " + email + " ok",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent();
                             intent.setClass(InscriptionActivity.this,LoginActivity.class);
                             startActivity(intent);
@@ -151,6 +152,7 @@ public class InscriptionActivity extends AppCompatActivity {
                         JSONObject res_obj = new JSONObject(api.get_Values());
 
                         if (res_obj.getString("res").equals("true")){
+                            Toast.makeText(this,"User " + email + " ok",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent();
                             intent.setClass(InscriptionActivity.this,LoginActivity.class);
                             startActivity(intent);
