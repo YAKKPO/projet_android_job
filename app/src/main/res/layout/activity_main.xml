@@ -99,7 +99,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button5"
+                    android:id="@+id/button_dentiste"
                     style="@style/MyButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                     tools:ignore="HardcodedText,VisualLintButtonSize" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button"
+                    android:id="@+id/button_medecin"
                     style="@style/MyButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     tools:ignore="HardcodedText,VisualLintButtonSize" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button3"
+                    android:id="@+id/btn_psychologie"
                     style="@style/MyButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="docteur"
+                    android:text="Psychologie"
                     app:icon="@drawable/baseline_emergency_24"
                     app:iconGravity="top"
                     app:iconPadding="0dp"

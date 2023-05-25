@@ -153,6 +153,19 @@ public class MainActivity extends AppCompatActivity {
             list_View_historique_non.setAdapter(adapterShowLogin);
 
         }
+
+        categorie();
+
+        Button btn_rechercher = findViewById(R.id.button_rechercher);
+
+        btn_rechercher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,RDVActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     protected void show_historique() throws InterruptedException, JSONException {
@@ -252,6 +265,41 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void categorie(){
+        Button btn_dentiste = findViewById(R.id.button_dentiste);
+        Button btn_medecin = findViewById(R.id.button_medecin);
+        Button btn_psychologie = findViewById(R.id.btn_psychologie);
+        btn_dentiste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("key","Dentiste");
+                intent.setClass(MainActivity.this,RDVActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_medecin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("key","Medecin générale");
+                intent.setClass(MainActivity.this,RDVActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_psychologie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("key","psychologie");
+                intent.setClass(MainActivity.this,RDVActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

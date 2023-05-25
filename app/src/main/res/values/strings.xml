@@ -48,4 +48,5 @@
     <string name="app_profil">Mon profil</string>
     <string name="app_type">Type</string>
     <string name="app_specialty">Specialty</string>
+    <string name="app_change_profil">Change</string>
 </resources>

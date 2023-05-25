@@ -39,4 +39,9 @@
         <item name="android:background">#2196F3</item>
     </style>
 
+    <style name="title_tv" parent="Widget.AppCompat.TextView">
+        <item name="android:color">@color/purple_200</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
 </resources>
