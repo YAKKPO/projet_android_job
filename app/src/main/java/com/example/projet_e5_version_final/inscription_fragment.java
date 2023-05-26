@@ -9,6 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.projet_e5_version_final.services.Api;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class inscription_fragment extends DialogFragment {
 
@@ -55,28 +64,47 @@ public class inscription_fragment extends DialogFragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        set_sp(view);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Dialog dialog = getDialog();
-        if (dialog != null) {
-            int width = ViewGroup.LayoutParams.MATCH_PARENT;
-            int height = ViewGroup.LayoutParams.MATCH_PARENT;
-            dialog.getWindow().setLayout(width, height);
+        try {
+            set_sp(view);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-    }
 
-    public void set_sp(View view){
-        String[] options = {"Option 1", "Option 2", "Option 3"};
+
+    }
+    public void set_sp(View view) throws JSONException, InterruptedException {
+
+        String values = "{sp: null}";
+        ArrayList<String> listValues = new ArrayList<>(Arrays.asList("get_specialty", "None", "Jiojio000608.", values));
+
+        Api api = new Api(listValues);
+
+        api.start();
+
+        api.join();
+
+        JSONArray res_obj = new JSONArray(api.get_Values());
+
+        String[] specialties = new String[res_obj.length()];
+
+        // Iterate over the JSON array
+        for (int i = 0; i < res_obj.length(); i++) {
+            // Get each JSON object in the array
+            JSONObject jsonObject = res_obj.getJSONObject(i);
+
+            // Extract the 'specialty' value and put it in the string array
+            specialties[i] = jsonObject.getString("specialty");
+        }
 
         // 创建 ArrayAdapter 并设置数据源
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, options);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, specialties);
 
         // 设置 Spinner 的适配器
         Spinner spinner = view.findViewById(R.id.sp_inscription);
         spinner.setAdapter(adapter);
     }
+
+
 }
