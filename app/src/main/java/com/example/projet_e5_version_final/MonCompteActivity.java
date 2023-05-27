@@ -58,10 +58,17 @@ public class MonCompteActivity extends AppCompatActivity {
 
         JSONObject json_obj = new JSONObject(api.get_Values());
 
-        ed_nom.setText(json_obj.getString("first_name"));
-        ed_address.setText(json_obj.getString("address"));
-        ed_tele.setText(json_obj.getString("phone_number"));
-        ed_date.setText(json_obj.getString("birthdate"));
+        if (type.equals("patient")){
+            ed_nom.setText(json_obj.getString("first_name"));
+            ed_address.setText(json_obj.getString("address"));
+            ed_tele.setText(json_obj.getString("phone_number"));
+            ed_date.setText(json_obj.getString("birthdate"));
+        }else{
+            ed_nom.setText(json_obj.getString("first_name"));
+            ed_address.setText(json_obj.getString("office_address"));
+            ed_tele.setText(json_obj.getString("phone_number"));
+        }
+
 
         button_change = findViewById(R.id.btn_change_mc);
         button_change.setOnClickListener(new View.OnClickListener() {

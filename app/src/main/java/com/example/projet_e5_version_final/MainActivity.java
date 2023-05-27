@@ -111,6 +111,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent_rdv);
                 }
 
+                if(item.getTitle().equals("Messages")){
+                    Intent intent_message = new Intent();
+                    intent_message.putExtra("id",id);
+                    intent_message.putExtra("type",type);
+                    intent_message.setClass(MainActivity.this,MessageActivity.class);
+                    startActivity(intent_message);
+                }
+
                 if (item.getTitle().equals("Log Out")){
 
                     //menu
@@ -138,7 +146,9 @@ public class MainActivity extends AppCompatActivity {
             LoginActivity.instance.finish();
             try {
                 change_title(navigationView);
-                show_historique();
+                if (type.equals("patient")){
+                    show_historique();
+                }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } catch (JSONException e) {
@@ -177,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
         api.join();
 
         JSONArray jsonArray = new JSONArray(api.get_Values());
+        System.out.println(jsonArray);
         if (jsonArray.length() > 0){
             ListView list_View_historique = findViewById(R.id.list_historique);
             if (jsonArray.length() > 2){

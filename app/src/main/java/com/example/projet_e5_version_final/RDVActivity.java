@@ -35,7 +35,6 @@ public class RDVActivity extends AppCompatActivity {
         this.id = intent.getStringExtra("id");
         this.type = intent.getStringExtra("type");
         this.key = intent.getStringExtra("key");
-        System.out.println(key);
         if (key != null){
             try {
                 SearchView searchView = findViewById(R.id.sv_rechercher_rdv);

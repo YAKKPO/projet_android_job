@@ -74,7 +74,7 @@ public class AdaptaterRDV extends BaseAdapter {
 
 
         JSONObject jsonobj = (JSONObject) getItem(i);
-
+        System.out.println(jsonobj);
         this.doctor_id = jsonobj.optString("id");
         String name = jsonobj.optString("first_name") + " " + jsonobj.optString("last_name");
         String email = jsonobj.optString("email");
@@ -99,7 +99,6 @@ public class AdaptaterRDV extends BaseAdapter {
         ListView list_main = view.findViewById(R.id.list_res);
 
         String values = "{doctor_email:" + email + "}";
-        System.out.println(values);
         ArrayList<String> listValues = new ArrayList<>(Arrays.asList("get_rdv_By_doctor_email", "None", "Jiojio000608.", values));
         Api api = new Api(listValues);
 
