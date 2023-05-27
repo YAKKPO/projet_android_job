@@ -1,12 +1,15 @@
 package com.example.projet_e5_version_final.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.projet_e5_version_final.MessageActivity;
+import com.example.projet_e5_version_final.MessageDetailsActivity;
 import com.example.projet_e5_version_final.R;
 
 import org.json.JSONArray;
@@ -72,6 +75,24 @@ public class AdaptaterMessage extends BaseAdapter {
             }
 
         }
+
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                try {
+                    intent.putExtra("id_message",obj.getString("id"));
+                    intent.putExtra("type",type);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                intent.setClass(context, MessageDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 }
