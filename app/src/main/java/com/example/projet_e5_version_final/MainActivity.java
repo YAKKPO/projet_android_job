@@ -104,11 +104,20 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(item.getTitle().equals("RDV")){
-                    Intent intent_rdv = new Intent();
-                    intent_rdv.putExtra("id",id);
-                    intent_rdv.putExtra("type",type);
-                    intent_rdv.setClass(MainActivity.this,RDVActivity.class);
-                    startActivity(intent_rdv);
+                    if (type.equals("patient")){
+                        Intent intent_rdv = new Intent();
+                        intent_rdv.putExtra("id",id);
+                        intent_rdv.putExtra("type",type);
+                        intent_rdv.setClass(MainActivity.this,RDVActivity.class);
+                        startActivity(intent_rdv);
+                    }else{
+                        Intent intent_rdv_doctor = new Intent();
+                        intent_rdv_doctor.putExtra("id",id);
+                        intent_rdv_doctor.putExtra("type",type);
+                        intent_rdv_doctor.setClass(MainActivity.this,DoctorsRDVActivity.class);
+                        startActivity(intent_rdv_doctor);
+                    }
+
                 }
 
                 if(item.getTitle().equals("Messages")){

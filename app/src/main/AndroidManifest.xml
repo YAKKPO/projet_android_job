@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".DoctorsRDVActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SendMessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".MessageDetailsActivity"
             android:exported="false" />
         <activity

@@ -43,6 +43,7 @@ public class MessageActivity extends AppCompatActivity {
         sp.setAdapter(adapter);
 
         Button button_recherche = findViewById(R.id.button_find_message);
+        Button button_new_message = findViewById(R.id.button_mail);
 
         if (type.equals("patient")){
             try {
@@ -185,6 +186,17 @@ public class MessageActivity extends AppCompatActivity {
                             break;
                     }
                 }
+            }
+        });
+
+        button_new_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_message = new Intent();
+                intent_message.putExtra("id",id);
+                intent_message.putExtra("type",type);
+                intent_message.setClass(MessageActivity.this,SendMessageActivity.class);
+                startActivity(intent_message);
             }
         });
     }

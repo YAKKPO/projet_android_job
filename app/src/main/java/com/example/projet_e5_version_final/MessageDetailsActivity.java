@@ -32,6 +32,7 @@ public class MessageDetailsActivity extends AppCompatActivity {
         type = intent.getStringExtra("type");
 
         try {
+            set_message_lu(id_message);
             get_message(id_message);
         } catch (InterruptedException | JSONException e) {
             throw new RuntimeException(e);
@@ -49,7 +50,6 @@ public class MessageDetailsActivity extends AppCompatActivity {
         String api_string = api.get_Values();
 
         JSONObject obj_json = new JSONObject(api_string);
-        System.out.println(obj_json);
 
         TextView tv_title = findViewById(R.id.tv_title);
         TextView tv_date = findViewById(R.id.tv_date);
@@ -65,6 +65,17 @@ public class MessageDetailsActivity extends AppCompatActivity {
 
         TextView tv_contenu = findViewById(R.id.tv_contenu);
         tv_contenu.setText(obj_json.getString("contenu"));
+    }
+
+    protected void set_message_lu(String id_message) throws InterruptedException, JSONException{
+        String values = "{id:" + id_message + "}";
+        ArrayList<String> listValues = new ArrayList<>(Arrays.asList("set_message_lu", "None", "Jiojio000608.", values));
+        Api api = new Api(listValues);
+        api.start();
+
+        api.join();
+
+        System.out.println(api.get_Values());
     }
 
 

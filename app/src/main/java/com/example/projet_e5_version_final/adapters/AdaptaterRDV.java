@@ -143,7 +143,12 @@ public class AdaptaterRDV extends BaseAdapter {
             throw new RuntimeException(e);
         }
 
-
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("test");
+            }
+        });
 
 
 
