@@ -73,7 +73,6 @@ public class AdaptaterMessage extends BaseAdapter {
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-
         }
 
 

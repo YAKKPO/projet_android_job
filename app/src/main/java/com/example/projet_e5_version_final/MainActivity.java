@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 drawerLayout.closeDrawer(GravityCompat.START);
-                System.out.println(item.getTitle());
+
                 if(item.getTitle().equals("SE CONNECTER ")){
                     Intent intent_login = new Intent();
                     intent_login.setClass(MainActivity.this,LoginActivity.class);
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         api.join();
 
         JSONArray jsonArray = new JSONArray(api.get_Values());
-        System.out.println(jsonArray);
+
         if (jsonArray.length() > 0){
             ListView list_View_historique = findViewById(R.id.list_historique);
             if (jsonArray.length() > 2){
