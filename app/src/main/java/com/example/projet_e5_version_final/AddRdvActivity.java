@@ -90,6 +90,10 @@ public class AddRdvActivity extends AppCompatActivity {
             String api_string = api.get_Values();
             if (api_string.equals("true")){
                 Toast.makeText(this, api_string, Toast.LENGTH_SHORT).show();
+                Intent intent_back = new Intent();
+                intent_back.putExtra("id",id);
+                intent_back.setClass(AddRdvActivity.this,DoctorsRDVActivity.class);
+                startActivity(intent_back);
                 AddRdvActivity.instance.finish();
             }else{
                 Toast.makeText(this, api_string, Toast.LENGTH_SHORT).show();
