@@ -88,7 +88,17 @@ public class DoctorsRDVActivity extends AppCompatActivity {
             }
         });
 
+        Button button_add_rdv = findViewById(R.id.button_add_rdv);
 
+        button_add_rdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_add = new Intent();
+                intent_add.putExtra("id",id);
+                intent_add.setClass(DoctorsRDVActivity.this,AddRdvActivity.class);
+                startActivity(intent_add);
+            }
+        });
     }
 
     protected void load_all_rdv() throws InterruptedException, JSONException {
