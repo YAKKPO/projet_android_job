@@ -78,7 +78,7 @@ public class AdaptaterRDV extends BaseAdapter {
 
 
         JSONObject jsonobj = (JSONObject) getItem(i);
-        System.out.println(jsonobj);
+
         this.doctor_id = jsonobj.optString("id");
         String name = jsonobj.optString("first_name") + " " + jsonobj.optString("last_name");
         String email = jsonobj.optString("email");

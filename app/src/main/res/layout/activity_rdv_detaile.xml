@@ -197,9 +197,9 @@
                 android:textStyle="bold" />
 
             <ListView
-                android:id="@+id/list_rdv_disponible"
+                android:id="@+id/l_rdv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="270dp" />
         </LinearLayout>
     </ScrollView>
 
